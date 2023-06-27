@@ -1,0 +1,28 @@
+id: a84481a4-d6e0-4a6e-a70c-c6a7c5153e23
+timestamp: 2023-06-27T03:32:39Z
+username: bullblock
+source: TAP-GUI
+accelerator:
+  name: where-for-dinner
+  source:
+    image: tanzulab.azurecr.io/tanzulab/tap-packages@sha256:9d9fc8e638a737d627b9f8edc24dccf76b8dbcf73190a099ea879e39ac4b2051
+fragments:
+  - name: tap-workload
+    source:
+      image: tanzulab.azurecr.io/tanzulab/tap-packages@sha256:dbf0dedb6848ad8a7704c1c19465a1ddae9039b0e63c1dd0df3e2ed9cbda6093
+  - name: build-wrapper-maven
+    source:
+      image: tanzulab.azurecr.io/tanzulab/tap-packages@sha256:195a3ca6585fa91c41292584a19c2807c72ecdf986ce860a7147451e89d467d4
+options:
+  cacheType: inmemCache
+  dbType: h2
+  dynamicMsgBroker: false
+  enableCloudEvents: false
+  enableSecurity: false
+  includeBuildToolWrapper: true
+  msgBrokerType: rabbitmq
+  msgbrokerName: msgbroker-where-for-dinner
+  numRabbitMQClusterNodes: 1
+  projectName: where-for-dinner
+  serviceNamespace: service-instances
+  workloadNamespace: default
